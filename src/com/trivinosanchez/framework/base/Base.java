@@ -4,11 +4,11 @@ import org.openqa.selenium.support.PageFactory;
 
 public class Base {
 
-    public static BasePage currentPage;
+    protected static BasePage currentPage;
 
-    public <TPage extends BasePage> TPage getInstance (Class<TPage> page) {
+    protected <TPage extends BasePage> TPage getInstance (Class<TPage> page) {
 
-        Object obj = PageFactory.initElements(DriverContext.driver, page);
+        Object obj = PageFactory.initElements(DriverContext.getDriver(), page);
         return page.cast(obj);
     }
 }

@@ -8,23 +8,24 @@ import org.openqa.selenium.support.How;
 public class LoginPage extends BasePage {
 
     @FindBy(how = How.NAME, using = "UserName")
-    public WebElement txtUserName;
+    private WebElement txtUserName;
 
     @FindBy(how = How.NAME, using = "Password")
-    public WebElement txtPassword;
+    private WebElement txtPassword;
 
-    @FindBy(how = How.NAME, using = "Login")
-    public WebElement btnLogin;
+    @FindBy(how = How.CSS, using = "[class*= 'btn-default']")
+    private WebElement btnLogin;
 
     public LoginPage() {
         super();
     }
 
-    public void login (String userName, String password) {
+    public BasePage login (String userName, String password) {
 
         txtUserName.sendKeys(userName);
         txtPassword.sendKeys(password);
         btnLogin.submit();
+        return getInstance(HomePage.class);
     }
 
 }
