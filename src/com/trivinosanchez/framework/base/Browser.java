@@ -12,7 +12,7 @@ public class Browser {
     private WebDriver driver;
     private BrowserType type;
 
-    public Browser (WebDriver driver) {
+    Browser (WebDriver driver) {
         this.driver = driver;
         if (driver instanceof FirefoxDriver) {
             type = BrowserType.Firefox;
@@ -27,5 +27,9 @@ public class Browser {
 
     public void maximize() {
         driver.manage().window().maximize();
+    }
+
+    public boolean isInUrl(String url) {
+        return driver.getCurrentUrl().equals(url);
     }
 }

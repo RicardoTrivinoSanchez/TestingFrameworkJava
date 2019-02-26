@@ -13,6 +13,9 @@ public class HomePage extends BasePage {
     @FindBy(how = How.LINK_TEXT, using = "Employee List")
     private WebElement lnkEmployeeList;
 
+    @FindBy(how = How.XPATH, using = "//a[@title = \"Manage\"]")
+    private WebElement lnkAccount;
+
     public HomePage() {
         super();
     }
@@ -25,5 +28,9 @@ public class HomePage extends BasePage {
     public BasePage goToEmployeeListPage () {
         lnkEmployeeList.click();
         return getInstance(EmployeeListPage.class);
+    }
+
+    public String getGreetings() {
+        return lnkAccount.getText();
     }
 }
