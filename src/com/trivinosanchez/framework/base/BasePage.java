@@ -4,6 +4,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage extends Base {
 
+    private String url;
+
     public BasePage () {
         PageFactory.initElements(DriverContext.getDriver(), this);
     }

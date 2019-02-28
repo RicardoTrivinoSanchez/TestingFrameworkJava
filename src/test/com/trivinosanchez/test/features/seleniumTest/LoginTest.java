@@ -31,7 +31,7 @@ public class LoginTest extends FrameworkInitialize {
     public void Login() throws InterruptedException {
 
         currentPage = getInstance(HomePage.class);
-        currentPage = currentPage.as(HomePage.class).goToLoginPage();
+        currentPage = currentPage.as(HomePage.class).getTopbar().goToLoginPage();
 
         Thread.sleep(1000);
 
