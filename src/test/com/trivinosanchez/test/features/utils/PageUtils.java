@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class PageUtils {
 
-    private static final String PROPERTIES_URL = "/home/capitole-consulting/Projects/TestingFrameworkJava/src/com/trivinosanchez/framework/config/PageUrls.properties";
+    private static final String PROPERTIES_URL = "src/com/trivinosanchez/framework/config/PageUrls.properties";
     private static final Properties PAGE_PATHS = PropertiesUtil.getProperties(PROPERTIES_URL);
 
     public static String getPageUrl(String page) throws Exception {

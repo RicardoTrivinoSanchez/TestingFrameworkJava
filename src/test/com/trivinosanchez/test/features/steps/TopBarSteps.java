@@ -10,8 +10,7 @@ public class TopBarSteps extends FrameworkInitialize {
 
     @And("^there is a greeting for the user at the top bar$")
     public void thereIsAGreetingForTheUserAtTheTopBar() {
-        currentPage = getInstance(HomePage.class);
-        String greetings = currentPage.as(HomePage.class).getTopbar().getGreetings();
+        String greetings = getCurrentPageAs(HomePage.class).getTopbar().getGreetings();
         Assert.assertTrue("Greetings should contain the username", greetings.contains(StepsUtil.username));
     }
 }

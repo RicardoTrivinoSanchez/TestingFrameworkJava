@@ -11,4 +11,9 @@ public class Base {
         Object obj = PageFactory.initElements(DriverContext.getDriver(), page);
         return page.cast(obj);
     }
+
+    protected <TPage extends BasePage> TPage getCurrentPageAs (Class<TPage> page) {
+        currentPage = getInstance(page);
+        return currentPage.as(page);
+    }
 }

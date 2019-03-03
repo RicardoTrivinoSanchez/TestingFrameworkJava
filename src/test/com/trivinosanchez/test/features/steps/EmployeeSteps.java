@@ -11,15 +11,13 @@ public class EmployeeSteps extends FrameworkInitialize {
 
     @When("^clicking on Create New Employee button$")
     public void clickingOnCreateNewEmployeeButton() {
-        currentPage = getInstance(EmployeeListPage.class);
-        currentPage.as(EmployeeListPage.class).clickOnCreateEmployee();
+        getCurrentPageAs(EmployeeListPage.class).clickOnCreateEmployee();
     }
 
     @When("^creating a user$")
     public void creatingAUser() {
-        currentPage = getInstance(EmployeeCreatePage.class);
-        StepsUtil.employee = currentPage.as(EmployeeCreatePage.class).getForm().fillIn();
-        currentPage.as(EmployeeCreatePage.class).getForm().clickCreateButton();
+        StepsUtil.employee = getCurrentPageAs(EmployeeCreatePage.class).getForm().fillIn();
+        getCurrentPageAs(EmployeeCreatePage.class).getForm().clickCreateButton();
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
@@ -29,7 +27,6 @@ public class EmployeeSteps extends FrameworkInitialize {
 
     @Then("^the user is visible in the Employee List$")
     public void theUserIsVisibleInTheEmployeeList() {
-        currentPage = getInstance(EmployeeListPage.class);
-        currentPage.as(EmployeeListPage.class).getTable().isEmployeeInTheTable(StepsUtil.employee);
+        getCurrentPageAs(EmployeeListPage.class).getTable().isEmployeeInTheTable(StepsUtil.employee);
     }
 }

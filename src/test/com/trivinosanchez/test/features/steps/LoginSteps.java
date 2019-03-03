@@ -14,8 +14,7 @@ public class LoginSteps extends FrameworkInitialize {
     @When("^logging as \"(.*)\" with password \"(.*)\"$")
     public void loggingAs(String username, String password) throws Throwable {
         StepsUtil.username = username;
-        currentPage = getInstance(LoginPage.class);
-        currentPage.as(LoginPage.class).login(username, password);
+        getCurrentPageAs(LoginPage.class).login(username, password);
         Thread.sleep(1000);
     }
 }
