@@ -1,9 +1,8 @@
 package com.trivinosanchez.test.features.steps;
 
 import com.trivinosanchez.framework.base.Browser;
-import com.trivinosanchez.framework.base.FrameworkInitialize;
 import com.trivinosanchez.framework.base.DriverContext;
-import com.trivinosanchez.test.features.pages.LoginPage;
+import com.trivinosanchez.framework.base.FrameworkInitialize;
 import com.trivinosanchez.test.features.utils.PageUtils;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
