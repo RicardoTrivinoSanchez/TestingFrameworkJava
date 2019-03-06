@@ -19,7 +19,7 @@ public class EmployeeSteps extends FrameworkInitialize {
         StepsUtil.employee = getCurrentPageAs(EmployeeCreatePage.class).getForm().fillIn();
         getCurrentPageAs(EmployeeCreatePage.class).getForm().clickCreateButton();
         try {
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

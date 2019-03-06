@@ -1,28 +1,13 @@
 package com.trivinosanchez.test.features.steps;
 
-import com.trivinosanchez.framework.base.Browser;
 import com.trivinosanchez.framework.base.DriverContext;
 import com.trivinosanchez.framework.base.FrameworkInitialize;
 import com.trivinosanchez.test.features.utils.PageUtils;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 
 public class CommonSteps extends FrameworkInitialize {
-
-    @Before
-    public void setUp() {
-        initializeBrowser(Browser.BrowserType.Chrome);
-    }
-
-    @After
-    public void endUp() {
-        if (DriverContext.getDriver() != null) {
-            DriverContext.getDriver().quit();
-        }
-    }
 
     @Given("^a user in the (.*) page$")
     public void aUserInThePage(String page) throws Exception {
