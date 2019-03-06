@@ -10,9 +10,14 @@ import org.junit.Assert;
 
 public class TopBarSteps extends FrameworkInitialize {
 
-    @When("^clicking on Login button$")
-    public void clickingOnLoginButton() {
+    @When("^clicking on Login link$")
+    public void clickingOnLoginLink() {
         getCurrentPageAs(TopBarMenu.class).goToLoginPage();
+    }
+
+    @When("^clicking on Employee List link$")
+    public void clickingOnEmployeeListLink() {
+        getCurrentPageAs(TopBarMenu.class).goToEmployeeListPage();
     }
 
     @And("^there is a greeting for the user at the top bar$")
