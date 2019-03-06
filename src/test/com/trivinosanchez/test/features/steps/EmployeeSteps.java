@@ -1,8 +1,8 @@
 package com.trivinosanchez.test.features.steps;
 
 import com.trivinosanchez.framework.base.FrameworkInitialize;
-import com.trivinosanchez.test.features.pages.EmployeeCreatePage;
-import com.trivinosanchez.test.features.pages.EmployeeListPage;
+import com.trivinosanchez.test.features.pages.employee.EmployeeCreatePage;
+import com.trivinosanchez.test.features.pages.employee.EmployeeListPage;
 import com.trivinosanchez.test.features.utils.StepsUtil;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

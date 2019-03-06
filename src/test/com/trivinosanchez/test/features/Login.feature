@@ -1,5 +1,8 @@
 Feature: Login
-  Testing login
+  As a Product Owner
+  I want to have a login page
+  So the user can log in into the web
+
   Scenario: Login Flow
     Given a user in the Login page
     When logging as "admin" with password "password"

@@ -1,6 +1,7 @@
 package com.trivinosanchez.test.features.pages;
 
 import com.trivinosanchez.framework.base.BasePage;
+import com.trivinosanchez.test.features.pages.common.TopBarMenu;
 import lombok.Getter;
 
 @Getter

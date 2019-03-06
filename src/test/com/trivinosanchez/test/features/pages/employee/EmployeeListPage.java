@@ -1,4 +1,4 @@
-package com.trivinosanchez.test.features.pages;
+package com.trivinosanchez.test.features.pages.employee;
 
 import com.trivinosanchez.framework.base.BasePage;
 import lombok.Getter;
