@@ -1,13 +1,13 @@
-package com.trivinosanchez.framework.base;
+package com.trivinosanchez.framework.utilities;
 
 import com.trivinosanchez.framework.base.Browser.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class FrameworkInitialize extends Base {
+public class InitializerUtil {
 
-    protected void initializeBrowser (BrowserType browserType) {
+    public static WebDriver getDriverForDesktop(BrowserType browserType) {
 
         WebDriver driver;
 
@@ -24,6 +24,10 @@ public class FrameworkInitialize extends Base {
                 driver = new ChromeDriver();
         }
 
-        DriverContext.setDriver(driver);
+        return driver;
+    }
+
+    public static WebDriver getDriverForDesktop(String browser) {
+        return getDriverForDesktop(BrowserType.valueOf(browser));
     }
 }

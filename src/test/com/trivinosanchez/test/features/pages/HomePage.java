@@ -7,10 +7,10 @@ import lombok.Getter;
 @Getter
 public class HomePage extends BasePage {
 
-    private TopBarMenu topbar;
+    private TopBarMenu topBar;
 
     public HomePage() {
         super();
-        topbar = new TopBarMenu();
+        this.topBar = new TopBarMenu();
     }
 }

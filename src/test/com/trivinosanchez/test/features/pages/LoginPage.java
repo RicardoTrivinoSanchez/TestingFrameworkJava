@@ -20,12 +20,11 @@ public class LoginPage extends BasePage {
         super();
     }
 
-    public BasePage login (String userName, String password) {
+    public void login (String userName, String password) {
 
         txtUserName.sendKeys(userName);
         txtPassword.sendKeys(password);
         btnLogin.submit();
-        return getInstance(HomePage.class);
     }
 
 }

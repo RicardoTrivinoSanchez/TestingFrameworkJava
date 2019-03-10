@@ -1,13 +1,12 @@
 package com.trivinosanchez.test.features.pages.common;
 
 import com.trivinosanchez.framework.base.BasePage;
-import com.trivinosanchez.test.features.pages.LoginPage;
-import com.trivinosanchez.test.features.pages.employee.EmployeeListPage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class TopBarMenu extends BasePage {
+
 
     @FindBy(how = How.LINK_TEXT, using = "Login")
     private WebElement lnkLogin;
@@ -22,14 +21,12 @@ public class TopBarMenu extends BasePage {
         super();
     }
 
-    public BasePage goToLoginPage () {
+    public void goToLoginPage () {
         lnkLogin.click();
-        return getInstance(LoginPage.class);
     }
 
-    public BasePage goToEmployeeListPage () {
+    public void goToEmployeeListPage () {
         lnkEmployeeList.click();
-        return getInstance(EmployeeListPage.class);
     }
 
     public String getGreetings() {

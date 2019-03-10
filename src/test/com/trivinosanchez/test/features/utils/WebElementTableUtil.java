@@ -1,12 +1,12 @@
 package com.trivinosanchez.test.features.utils;
 
-import com.trivinosanchez.framework.base.FrameworkInitialize;
+import com.trivinosanchez.framework.utilities.InitializerUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class WebElementTableUtil extends FrameworkInitialize {
+public class WebElementTableUtil extends InitializerUtil {
 
     private WebElement table;
 
