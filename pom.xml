@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <cucumber.groupId>info.cukes</cucumber.groupId>
         <cucumber.version>1.2.5</cucumber.version>
     </properties>
 
@@ -36,22 +37,21 @@
         </dependency>
 
         <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
+            <groupId>${cucumber.groupId}</groupId>
+            <artifactId>cucumber-jvm</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>${cucumber.groupId}</groupId>
             <artifactId>cucumber-junit</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>info.cukes</groupId>
+            <groupId>${cucumber.groupId}</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber.version}</version>
-            <scope>test</scope>
         </dependency>
 
     </dependencies>

@@ -1,6 +1,7 @@
 package com.trivinosanchez.test.features.pages;
 
 import com.trivinosanchez.framework.base.BasePage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -16,8 +17,8 @@ public class LoginPage extends BasePage {
     @FindBy(how = How.CSS, using = "[class*= 'btn-default']")
     private WebElement btnLogin;
 
-    public LoginPage() {
-        super();
+    public LoginPage(WebDriver driver) {
+        super(driver);
     }
 
     public void login (String userName, String password) {

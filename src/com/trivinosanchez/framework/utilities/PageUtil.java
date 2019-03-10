@@ -1,11 +1,10 @@
-package com.trivinosanchez.test.features.utils;
+package com.trivinosanchez.framework.utilities;
 
 import com.trivinosanchez.framework.config.Settings;
-import com.trivinosanchez.framework.utilities.PropertiesUtil;
 
 import java.util.Properties;
 
-public class PageUtils {
+public class PageUtil {
 
     private static final String PROPERTIES_URL = "src/com/trivinosanchez/framework/config/PageUrls.properties";
     private static final Properties PAGE_PATHS = PropertiesUtil.getProperties(PROPERTIES_URL);
@@ -21,7 +20,10 @@ public class PageUtils {
     }
 
     private static String getKeyFor(String page) {
-        page = page.replace(" ", ".");
-        return "page." + page.toLowerCase();
+        page = page.toLowerCase()
+                .replace(" ", "")
+                .replace("page", "")
+                .replace("employee", "employee.");
+        return "page." + page;
     }
 }

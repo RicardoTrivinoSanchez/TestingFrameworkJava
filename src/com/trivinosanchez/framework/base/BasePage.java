@@ -1,10 +1,18 @@
 package com.trivinosanchez.framework.base;
 
+import lombok.Getter;
+import org.openqa.selenium.WebDriver;
+
+@Getter
 public abstract class BasePage {
 
-    private String url;
+    private final WebDriver driver;
 
-    public <TPage extends BasePage> TPage as (Class<TPage> pageInstance) {
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public <TPage extends BasePage> TPage as (Class<TPage> componentInstance) {
         try {
             return (TPage) this;
         } catch (Exception e) {

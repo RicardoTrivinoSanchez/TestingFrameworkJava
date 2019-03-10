@@ -11,11 +11,6 @@ public class HookSteps {
     public HookSteps(TestContext context) {
         this.context = context;
     }
-//
-//    @Before
-//    public void setUp() {
-//        context.init(getDriverForDesktop(Browser.BrowserType.Chrome));
-//    }
 
     @Before("@Web")
     public void setUpWeb() {

@@ -6,12 +6,12 @@ Feature: Create employee
 
   @Web @Smoke
   Scenario: Accessing Create Employee Page
-    Given a logged user in the Employee List page
+    Given a logged user in the Employee List page browsing from Chrome
     When clicking on Create New Employee button
     Then the user is directed to Employee Create page
 
   @Web
   Scenario: Creating an Employee
-    Given a logged user in the Employee Create page
+    Given a logged user in the Employee Create page browsing from Chrome
     When creating a user
     Then the user is visible in the Employee List

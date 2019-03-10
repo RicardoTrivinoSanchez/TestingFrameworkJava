@@ -29,7 +29,12 @@ public class Browser {
         driver.manage().window().maximize();
     }
 
-    public boolean isInUrl(String url) {
-        return driver.getCurrentUrl().equals(url);
+    public String getCurrentPageUrl() {
+        return driver.getCurrentUrl();
     }
+
+    public boolean isInUrl(String url) {
+        return getCurrentPageUrl().equals(url);
+    }
+
 }

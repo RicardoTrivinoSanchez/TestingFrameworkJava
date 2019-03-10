@@ -4,6 +4,7 @@ import com.trivinosanchez.framework.base.BasePage;
 import com.trivinosanchez.test.features.model.Employee;
 import com.trivinosanchez.test.features.utils.EmployeeTableUtil;
 import lombok.Getter;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -16,8 +17,8 @@ public class EmployeeTable extends BasePage {
 
     private EmployeeTableUtil table;
 
-    public EmployeeTable() {
-        super();
+    public EmployeeTable(WebDriver driver) {
+        super(driver);
         table = new EmployeeTableUtil(employeeTable);
     }
 

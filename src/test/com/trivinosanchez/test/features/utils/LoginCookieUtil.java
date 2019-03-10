@@ -1,8 +1,12 @@
 package com.trivinosanchez.test.features.utils;
 
+import com.trivinosanchez.framework.utilities.PageUtil;
 import org.openqa.selenium.Cookie;
 
-import java.net.*;
+import java.net.HttpCookie;
+import java.net.HttpURLConnection;
+import java.net.ProtocolException;
+import java.net.URL;
 
 public class LoginCookieUtil {
 
@@ -26,7 +30,7 @@ public class LoginCookieUtil {
     }
 
     private static void initConnection() throws Exception {
-        String loginUrl = PageUtils.getPageUrl("Login");
+        String loginUrl = PageUtil.getPageUrl("Login");
         URL connUrl = new URL(loginUrl);
         conn = (HttpURLConnection) connUrl.openConnection();
     }

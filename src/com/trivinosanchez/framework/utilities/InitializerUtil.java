@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class InitializerUtil {
 
     public static WebDriver getDriverForDesktop(BrowserType browserType) {
@@ -24,6 +26,7 @@ public class InitializerUtil {
                 driver = new ChromeDriver();
         }
 
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return driver;
     }
 

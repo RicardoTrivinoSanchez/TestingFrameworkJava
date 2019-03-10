@@ -1,12 +1,12 @@
 package com.trivinosanchez.test.features.pages.common;
 
 import com.trivinosanchez.framework.base.BasePage;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 public class TopBarMenu extends BasePage {
-
 
     @FindBy(how = How.LINK_TEXT, using = "Login")
     private WebElement lnkLogin;
@@ -17,8 +17,8 @@ public class TopBarMenu extends BasePage {
     @FindBy(how = How.XPATH, using = "//a[@title = \"Manage\"]")
     private WebElement lnkAccount;
 
-    public TopBarMenu() {
-        super();
+    public TopBarMenu(WebDriver driver) {
+        super(driver);
     }
 
     public void goToLoginPage () {
