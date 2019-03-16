@@ -12,17 +12,18 @@ public class InitializerUtil {
     public static WebDriver getDriverForDesktop(BrowserType browserType) {
 
         WebDriver driver;
+        String path = "src/com/trivinosanchez/framework/drivers/" + getDesktopOS() + "/";
 
         switch(browserType) {
 
             case Firefox:
-                System.setProperty("webdriver.gecko.driver", "src/com/trivinosanchez/framework/drivers/linux/geckodriver");
+                System.setProperty("webdriver.gecko.driver", path + "geckodriver");
                 driver = new FirefoxDriver();
                 break;
 
             case Chrome:
             default:
-                System.setProperty("webdriver.chrome.driver", "src/com/trivinosanchez/framework/drivers/linux/chromedriver");
+                System.setProperty("webdriver.chrome.driver", path + "chromedriver");
                 driver = new ChromeDriver();
         }
 
@@ -32,5 +33,20 @@ public class InitializerUtil {
 
     public static WebDriver getDriverForDesktop(String browser) {
         return getDriverForDesktop(BrowserType.valueOf(browser));
+    }
+
+    private static String getDesktopOS() {
+        String desktopOS = "";
+        String osName = System.getProperty("os.name").toLowerCase();
+        if (osName.contains("win")){
+            desktopOS = "windows";
+
+        } else if (osName.contains("osx")){
+            desktopOS = "macoS";
+
+        } else if (osName.contains("nix") || osName.contains("aix") || osName.contains("nux")) {
+            desktopOS = "linux";
+        }
+        return desktopOS;
     }
 }
