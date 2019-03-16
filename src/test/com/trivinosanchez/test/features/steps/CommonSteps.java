@@ -34,19 +34,6 @@ public class CommonSteps {
         aUserInThePage(page);
     }
 
-    @Given("^(a|the) logged user in the (.*) page$")
-    public void aLoggedUserInThePage(String page) throws Throwable {
-        aUserInThePage("Login");
-        LoginSteps.execute(context).loggingAs("admin", "password");
-        aUserInThePage(page);
-    }
-
-    @Given("^a logged user in the (.*) page browsing from (.*)$")
-    public void aLoggedUserInThePage(String page, String browser) throws Throwable {
-        aUserNavigatingFromBrowser(browser);
-        aLoggedUserInThePage(page);
-    }
-
     @Then("^the user is directed to (.*) page$")
     public void theUserIsDirectedToPage(String page) throws Exception {
         String expectedUrl = PageUtil.getPageUrl(page);

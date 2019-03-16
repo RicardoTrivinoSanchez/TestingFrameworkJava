@@ -6,10 +6,8 @@ Feature: Login
 
   @Web
   Scenario Outline: Login Flow
-    Given a user in the Login page browsing from <browser>
-    When logging as "admin" with password "password"
-    Then the user is directed to Home page
-    And there is a greeting for the user at the top bar
+    Given a user in the Home page browsing from <browser>
+    When searching for 'Cervantes'
 
     Examples:
       | browser |
