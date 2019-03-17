@@ -1,6 +1,5 @@
 package com.trivinosanchez.test.features.steps;
 
-import com.trivinosanchez.framework.base.Platform;
 import com.trivinosanchez.framework.base.TestContext;
 import com.trivinosanchez.framework.utilities.InitializerUtil;
 import com.trivinosanchez.framework.utilities.PageUtil;
@@ -19,9 +18,9 @@ public class CommonSteps {
 
     @Given("^a user on (.*) browsing from (.*)$")
     public void aUserOnPlatformBrowsingFromBrowser(String platform, String browser) {
-        if (Platform.valueOf(platform) == Platform.Desktop) {
+        if (TestContext.Platform.valueOf(platform) == TestContext.Platform.Desktop) {
             context.initDesktop(InitializerUtil.getDriverForDesktop(browser));
-        } else if (Platform.valueOf(platform) == Platform.WebApp) {
+        } else if (TestContext.Platform.valueOf(platform) == TestContext.Platform.WebApp) {
             context.initWebApp(InitializerUtil.getDriverForWebApp(browser));
         }
     }
