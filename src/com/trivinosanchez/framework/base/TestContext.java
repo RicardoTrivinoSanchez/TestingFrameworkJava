@@ -2,7 +2,6 @@ package com.trivinosanchez.framework.base;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,10 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 @NoArgsConstructor
 public class TestContext {
 
+    public enum Platform {
+        Desktop, WebApp
+    }
+
     private WebDriver driver;
     private Browser browser;
     private Platform platform;
-    @Setter
     private PageObject currentPageObject;
 
     private void init (WebDriver driver, Platform platform) {

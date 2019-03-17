@@ -1,6 +1,7 @@
 package com.trivinosanchez.framework.utilities;
 
-import com.trivinosanchez.framework.base.Browser.BrowserType;
+import com.trivinosanchez.framework.base.Browser;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,12 +13,12 @@ import java.util.concurrent.TimeUnit;
 
 public class InitializerUtil {
 
-    private static WebDriver getDriverForWeb(BrowserType browserType) {
+    private static WebDriver getDriverForWeb(Browser.Name browserName) {
 
         WebDriver driver;
-        String path = "src/com/trivinosanchez/framework/drivers/" + getDesktopOS() + "/";
+        String path = "src/com/trivinosanchez/framework/drivers/" + getDriverFolder() + "/";
 
-        switch(browserType) {
+        switch(browserName) {
 
             case Firefox:
                 System.setProperty("webdriver.gecko.driver", path + "geckodriver");
@@ -34,12 +35,12 @@ public class InitializerUtil {
         return driver;
     }
 
-    public static WebDriver getDriverForDesktop(String browser) {
-        return getDriverForWeb(BrowserType.valueOf(browser));
+    public static WebDriver getDriverForDesktop(String browserName) {
+        return getDriverForWeb(Browser.Name.valueOf(browserName));
     }
 
-    public static WebDriver getDriverForWebApp(String browser) {
-        String path = "src/com/trivinosanchez/framework/drivers/" + getDesktopOS() + "/";
+    public static WebDriver getDriverForWebApp(String browserName) {
+        String path = "src/com/trivinosanchez/framework/drivers/" + getDriverFolder() + "/";
         System.setProperty("webdriver.chrome.driver", path + "chromedriver");
 
         Map<String, String> mobileEmulation = new HashMap<>();
@@ -51,18 +52,7 @@ public class InitializerUtil {
         return new ChromeDriver(chromeOptions);
     }
 
-    private static String getDesktopOS() {
-        String desktopOS = "";
-        String osName = System.getProperty("os.name").toLowerCase();
-        if (osName.contains("win")){
-            desktopOS = "windows";
-
-        } else if (osName.contains("osx")){
-            desktopOS = "macoS";
-
-        } else if (osName.contains("nix") || osName.contains("aix") || osName.contains("nux")) {
-            desktopOS = "linux";
-        }
-        return desktopOS;
+    private static String getDriverFolder() {
+        return Platform.getCurrent().toString().toLowerCase();
     }
 }

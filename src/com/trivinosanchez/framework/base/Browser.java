@@ -10,19 +10,19 @@ import java.util.Map;
 
 public class Browser {
 
-    public enum BrowserType {
+    public enum Name {
         Firefox, Chrome, IE, Safari
     }
 
     private WebDriver driver;
-    private BrowserType type;
+    private Name name;
 
     Browser (WebDriver driver) {
         this.driver = driver;
         if (driver instanceof FirefoxDriver) {
-            type = BrowserType.Firefox;
+            name = Name.Firefox;
         } else {
-            type = BrowserType.Chrome;
+            name = Name.Chrome;
         }
     }
 
