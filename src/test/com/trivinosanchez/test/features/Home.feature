@@ -6,10 +6,12 @@ Feature: Login
 
   @Web
   Scenario Outline: Login Flow
-    Given a user in the Home page browsing from <browser>
+    Given a user on <platform> browsing from Chrome
+    And the user is in the Home page
     When searching for 'Cervantes'
+    Then the user is directed to Cervantes page
 
     Examples:
-      | browser |
-      | Chrome  |
-      | Firefox |
+      | platform  |
+      | Desktop   |
+      | WebApp    |

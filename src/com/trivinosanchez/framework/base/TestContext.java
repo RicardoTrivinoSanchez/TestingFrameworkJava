@@ -12,21 +12,43 @@ public class TestContext {
 
     private WebDriver driver;
     private Browser browser;
+    private Platform platform;
     @Setter
-    private BasePage currentPage;
+    private PageObject currentPageObject;
 
-    public void init (WebDriver driver) {
+    private void init (WebDriver driver, Platform platform) {
         this.driver = driver;
         this.browser = new Browser(driver);
+        this.platform = platform;
     }
 
-    private <TPage extends BasePage> TPage getInstance (Class<TPage> page) {
-        Object obj = PageFactory.initElements(this.driver, page);
-        return page.cast(obj);
+    public void initDesktop (WebDriver driver) {
+        init(driver, Platform.Desktop);
     }
 
-    public <TPage extends BasePage> TPage getCurrentPageAs (Class<TPage> page) {
-        currentPage = getInstance(page);
-        return getCurrentPage().as(page);
+    public void initWebApp (WebDriver driver) {
+        init(driver, Platform.WebApp);
+    }
+
+    private <TPage extends PageObject> TPage getInstance (Class<TPage> pageObject) {
+        Object obj = PageFactory.initElements(this.driver, pageObject);
+        return pageObject.cast(obj);
+    }
+
+    public <TPage extends PageObject> TPage getCurrentPageObjectAs(Class<TPage> pageObject) {
+        currentPageObject = getInstance(pageObject);
+        return getCurrentPageObject().as(pageObject);
+    }
+
+    public boolean isDesktop() {
+        return platform == Platform.Desktop;
+    }
+
+    public boolean isWebApp() {
+        return platform == Platform.WebApp;
+    }
+
+    public boolean isWeb() {
+        return platform == Platform.Desktop || platform == Platform.WebApp;
     }
 }

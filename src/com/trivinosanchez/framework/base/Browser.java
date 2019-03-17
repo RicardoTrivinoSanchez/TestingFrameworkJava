@@ -1,7 +1,12 @@
 package com.trivinosanchez.framework.base;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Browser {
 
@@ -27,6 +32,16 @@ public class Browser {
 
     public void maximize() {
         driver.manage().window().maximize();
+    }
+
+    public void setMobileMode() {
+        Map<String, String> mobileEmulation = new HashMap<>();
+        mobileEmulation.put("deviceName", "Pixel 2");
+
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+
+        WebDriver driver = new ChromeDriver(chromeOptions);
     }
 
     public String getCurrentPageUrl() {
