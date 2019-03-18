@@ -12,7 +12,6 @@ public class WebAppSearchPageObject extends PageObject implements SearchPageObje
     @FindBy(how = How.ID, using = "searchIcon")
     private WebElement searchIcon;
 
-//    @FindBy(how = How.CLASS_NAME, using = "search")
     @FindBy(how = How.XPATH, using = "//form/input[@class='search']")
     private WebElement searchBox;
 
@@ -40,7 +39,7 @@ public class WebAppSearchPageObject extends PageObject implements SearchPageObje
 
     public void openSearchBox() {
         searchIcon.click();
-        this.wait(2000);
+        waitUntilVisibilityOf(searchBox);
     }
 
     public void closeSearchBox() {

@@ -1,14 +1,16 @@
 package com.trivinosanchez.framework.utilities;
 
 import com.trivinosanchez.framework.base.Browser;
+import com.trivinosanchez.framework.base.Capabilities;
+import io.appium.java_client.android.AndroidDriver;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class InitializerUtil {
@@ -21,13 +23,13 @@ public class InitializerUtil {
         switch(browserName) {
 
             case Firefox:
-                System.setProperty("webdriver.gecko.driver", path + "geckodriver");
+                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
                 break;
 
             case Chrome:
             default:
-                System.setProperty("webdriver.chrome.driver", path + "chromedriver");
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
 
@@ -39,17 +41,12 @@ public class InitializerUtil {
         return getDriverForWeb(Browser.Name.valueOf(browserName));
     }
 
-    public static WebDriver getDriverForWebApp(String browserName) {
-        String path = "src/com/trivinosanchez/framework/drivers/" + getDriverFolder() + "/";
-        System.setProperty("webdriver.chrome.driver", path + "chromedriver");
-
-        Map<String, String> mobileEmulation = new HashMap<>();
-        mobileEmulation.put("deviceName", "Pixel 2");
-
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
-
-        return new ChromeDriver(chromeOptions);
+    public static WebDriver getDriverForWebApp(String browserName) throws MalformedURLException {
+        AndroidDriver driver = new AndroidDriver(
+                new URL("http://localhost:4723/wd/hub"),
+                Capabilities.forAndroidBrowser(browserName));
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return driver;
     }
 
     private static String getDriverFolder() {

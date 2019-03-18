@@ -1,6 +1,6 @@
 package com.trivinosanchez.framework.base;
 
-import org.openqa.selenium.remote.CapabilityType;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class Capabilities {
@@ -11,17 +11,19 @@ public class Capabilities {
 
     private static Capabilities forAndroid() {
         Capabilities caps = new Capabilities();
-        caps.capabilities.setCapability("platform", "Android");
-        caps.capabilities.setCapability("deviceName", "Android Device");
+        caps.capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        caps.capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
         return caps;
     }
 
     private Capabilities withBrowser(String browser) {
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, browser);
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, browser);
         return this;
     }
 
     public static DesiredCapabilities forAndroidBrowser(String browser) {
-        return forAndroid().withBrowser(browser).capabilities;
+        Capabilities caps = forAndroid();
+        caps.withBrowser(browser);
+        return caps.capabilities;
     }
 }

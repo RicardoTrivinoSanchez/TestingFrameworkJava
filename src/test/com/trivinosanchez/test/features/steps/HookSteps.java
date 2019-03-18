@@ -23,7 +23,8 @@ public class HookSteps {
     }
 
     @After
-    public void endUp() {
+    public void endUp() throws InterruptedException {
+        Thread.sleep(1000);
         if (context.getDriver() != null) {
             context.getDriver().quit();
         }
