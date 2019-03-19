@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @Getter
 public abstract class PageObject {
 
-    private final WebDriver driver;
+    protected final WebDriver driver;
     protected final WebDriverWait wait;
 
     public PageObject(WebDriver driver) {

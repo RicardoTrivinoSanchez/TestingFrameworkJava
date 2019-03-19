@@ -10,7 +10,7 @@ import org.openqa.selenium.support.How;
 public class DesktopSearchPageObject extends PageObject implements SearchPageObject {
 
     @FindBy(how = How.ID, using = "searchInput")
-    public WebElement searchBox;
+    private WebElement searchBox;
 
     public DesktopSearchPageObject (WebDriver driver) {
         super(driver);

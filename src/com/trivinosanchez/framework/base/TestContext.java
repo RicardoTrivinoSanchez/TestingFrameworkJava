@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class TestContext {
 
     public enum Platform {
-        Desktop, WebApp
+        Desktop, WebApp, Android
     }
 
     private WebDriver driver;
@@ -30,6 +30,10 @@ public class TestContext {
 
     public void initWebApp (WebDriver driver) {
         init(driver, Platform.WebApp);
+    }
+
+    public void initAndroid (WebDriver driver) {
+        init(driver, Platform.Android);
     }
 
     private <TPage extends PageObject> TPage getInstance (Class<TPage> pageObject) {

@@ -1,6 +1,7 @@
 package com.trivinosanchez.test.features.steps;
 
 import com.trivinosanchez.framework.base.TestContext;
+import com.trivinosanchez.test.features.pages.tabs.search.AndroidSearchPageObject;
 import com.trivinosanchez.test.features.pages.tabs.search.DesktopSearchPageObject;
 import com.trivinosanchez.test.features.pages.tabs.search.SearchPageObject;
 import com.trivinosanchez.test.features.pages.tabs.search.WebAppSearchPageObject;
@@ -19,6 +20,9 @@ public class SearchSteps {
                 break;
             case WebApp:
                 searchPageObject = context.getCurrentPageObjectAs(WebAppSearchPageObject.class);
+                break;
+            case Android:
+                searchPageObject = context.getCurrentPageObjectAs(AndroidSearchPageObject.class);
                 break;
         }
     }

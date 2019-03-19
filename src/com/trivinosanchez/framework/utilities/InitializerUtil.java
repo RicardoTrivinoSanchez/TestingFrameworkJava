@@ -43,13 +43,25 @@ public class InitializerUtil {
 
     public static WebDriver getDriverForWebApp(String browserName) throws MalformedURLException {
         AndroidDriver driver = new AndroidDriver(
-                new URL("http://localhost:4723/wd/hub"),
+                getAppiumServerUrl(),
                 Capabilities.forAndroidBrowser(browserName));
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return driver;
+    }
+
+    public static WebDriver getDriverForAndroid(String appName) throws MalformedURLException {
+        AndroidDriver driver = new AndroidDriver(
+                getAppiumServerUrl(),
+                Capabilities.forAndroidApp(appName));
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
 
     private static String getDriverFolder() {
         return Platform.getCurrent().toString().toLowerCase();
+    }
+
+    private static URL getAppiumServerUrl() throws MalformedURLException {
+        return new URL("http://localhost:4723/wd/hub");
     }
 }

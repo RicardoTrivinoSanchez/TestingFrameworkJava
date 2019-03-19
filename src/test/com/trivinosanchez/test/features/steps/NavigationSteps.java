@@ -1,31 +1,19 @@
 package com.trivinosanchez.test.features.steps;
 
 import com.trivinosanchez.framework.base.TestContext;
-import com.trivinosanchez.framework.utilities.InitializerUtil;
 import com.trivinosanchez.framework.utilities.PageUtil;
+import com.trivinosanchez.test.features.pages.AndroidCervantesPageObject;
+import com.trivinosanchez.test.features.pages.AndroidLandingPage;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 
-import java.net.MalformedURLException;
-
-public class CommonSteps {
+public class NavigationSteps {
 
     private TestContext context;
 
-    public CommonSteps(TestContext context) {
+    public NavigationSteps(TestContext context) {
         this.context = context;
-    }
-
-    @Given("^a user on Desktop browsing from (.*)$")
-    public void aUserOnDesktopBrowsingFromBrowser(String browser) {
-        context.initDesktop(InitializerUtil.getDriverForDesktop(browser));
-    }
-
-    @Given("^a user on WebApp browsing from (.*)$")
-    public void aUserOnWebAppBrowsingFromBrowser(String browser) throws MalformedURLException {
-        context.initWebApp(InitializerUtil.getDriverForWebApp(browser));
     }
 
     @And("^the user is in the (.*) page$")
@@ -39,8 +27,15 @@ public class CommonSteps {
         }
     }
 
+    @And("^the user is in the (.*) page on Android$")
+    public void aUserIsInThePageOnAndroid(String page) {
+        if (page.equals("Home")) {
+            context.getCurrentPageObjectAs(AndroidLandingPage.class).pressSkip();
+        }
+    }
+
     @Then("^the user has been directed to (.*) page$")
-    public void theUserIsDirectedToPage(String page) throws Exception {
+    public void theUserHasBeenDirectedToPage(String page) throws Exception {
         if (context.isWeb()) {
             String expectedUrl = PageUtil.getPageUrl(page, context.isDesktop());
             String actualUrl = context.getBrowser().getCurrentPageUrl();
@@ -48,4 +43,13 @@ public class CommonSteps {
                     context.getBrowser().isInUrl(expectedUrl));
         }
     }
+
+    @Then("^the user has been directed to (.*) page on Android$")
+    public void theUserHasBeenDirectedToPageOnAndroid(String page) {
+        if (page.equals("Cervantes")) {
+            Assert.assertTrue("App should be in Cervantes page",
+                    context.getCurrentPageObjectAs(AndroidCervantesPageObject.class).isPageVisible());
+        }
+    }
+
 }
