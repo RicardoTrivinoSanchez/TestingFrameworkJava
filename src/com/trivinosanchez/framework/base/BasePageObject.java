@@ -1,22 +1,23 @@
 package com.trivinosanchez.framework.base;
 
-import lombok.Getter;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-@Getter
 public abstract class BasePageObject {
 
-    protected final TestContext context;
-    protected final WebDriverWait wait;
+    private final TestContext context;
+    final WebDriver driver;
+    private final WebDriverWait wait;
 
     public BasePageObject(TestContext context) {
         this.context = context;
+        this.driver = context.getDriver();
         this.wait = new WebDriverWait(context.getDriver(), 10);
     }
 
-    public <TPage extends BasePageObject> TPage as (Class<TPage> componentInstance) {
+    <TPage extends BasePageObject> TPage as (Class<TPage> componentInstance) {
         try {
             return (TPage) this;
         } catch (Exception e) {
@@ -33,7 +34,7 @@ public abstract class BasePageObject {
         }
     }
 
-    public void waitUntilVisibilityOf(WebElement element) {
+    protected void waitUntilVisibilityOf(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

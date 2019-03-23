@@ -1,15 +1,12 @@
 package com.trivinosanchez.test.features.pages.tabs.search;
 
-import com.trivinosanchez.framework.base.BasePageObject;
+import com.trivinosanchez.framework.base.BaseAndroidPageObject;
 import com.trivinosanchez.framework.base.TestContext;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class AndroidSearchPageObject extends BasePageObject implements SearchPageObject {
+public class AndroidSearchPageObject extends BaseAndroidPageObject implements SearchPageObject {
 
     @FindBy(how = How.ID, using = "org.wikipedia:id/search_container")
     private WebElement searchContainer;
@@ -30,7 +27,7 @@ public class AndroidSearchPageObject extends BasePageObject implements SearchPag
     }
 
     public void submitSearch() {
-        ((AndroidDriver) context.getDriver()).pressKey(new KeyEvent(AndroidKey.ENTER));
+        submit();
     }
 
     public void searchFor(String textToSearch) {

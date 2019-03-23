@@ -13,7 +13,7 @@ public class Capabilities {
     private static Capabilities forAndroid() {
         Capabilities caps = new Capabilities();
         caps.capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-        caps.capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+        caps.capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Device");
         return caps;
     }
 

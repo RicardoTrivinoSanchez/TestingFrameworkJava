@@ -1,11 +1,12 @@
 package com.trivinosanchez.framework.utilities;
 
 import com.trivinosanchez.framework.base.TestContext;
+import org.openqa.selenium.support.PageFactory;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-public class PageBuilder extends org.openqa.selenium.support.PageFactory {
+public class PageBuilder extends PageFactory {
 
     private PageBuilder() {
     }

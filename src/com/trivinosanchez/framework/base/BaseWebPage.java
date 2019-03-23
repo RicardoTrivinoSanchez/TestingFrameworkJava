@@ -2,16 +2,18 @@ package com.trivinosanchez.framework.base;
 
 import com.trivinosanchez.framework.utilities.PageUtil;
 
-public class BaseWebPage extends BasePageObject {
+public abstract class BaseWebPage extends BasePageObject {
 
-    protected final String url;
+    private final String url;
+    protected final Browser browser;
 
-    public BaseWebPage(TestContext context) {
+    protected BaseWebPage(TestContext context) {
         super(context);
+        this.browser = context.getBrowser();
         url = PageUtil.getPageUrl(this.getClass().getSimpleName(), context.isDesktop());
     }
 
     public boolean isOpen() {
-        return context.getBrowser().isInUrl(url);
+        return browser.isInUrl(url);
     }
 }
