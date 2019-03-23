@@ -34,7 +34,7 @@ public abstract class BasePageObject {
         }
     }
 
-    protected void waitUntilVisibilityOf(WebElement element) {
+    public void waitUntilVisibilityOf(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
