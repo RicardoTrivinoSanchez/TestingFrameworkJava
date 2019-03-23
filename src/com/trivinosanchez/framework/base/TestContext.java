@@ -1,9 +1,9 @@
 package com.trivinosanchez.framework.base;
 
+import com.trivinosanchez.framework.utilities.PageBuilder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
 
 @Getter
 @NoArgsConstructor
@@ -16,7 +16,7 @@ public class TestContext {
     private WebDriver driver;
     private Browser browser;
     private Platform platform;
-    private PageObject currentPageObject;
+    private BasePageObject currentPageObject;
 
     private void init (WebDriver driver, Platform platform) {
         this.driver = driver;
@@ -36,12 +36,12 @@ public class TestContext {
         init(driver, Platform.Android);
     }
 
-    private <TPage extends PageObject> TPage getInstance (Class<TPage> pageObject) {
-        Object obj = PageFactory.initElements(this.driver, pageObject);
+    private <TPage extends BasePageObject> TPage getInstance(Class<TPage> pageObject) {
+        Object obj = PageBuilder.initElements(this, pageObject);
         return pageObject.cast(obj);
     }
 
-    public <TPage extends PageObject> TPage getCurrentPageObjectAs(Class<TPage> pageObject) {
+    public <TPage extends BasePageObject> TPage getPageObjectAs(Class<TPage> pageObject) {
         currentPageObject = getInstance(pageObject);
         return getCurrentPageObject().as(pageObject);
     }

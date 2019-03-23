@@ -17,25 +17,26 @@ public class NavigationSteps {
     }
 
     @And("^the user is in the (.*) page$")
-    public void aUserIsInThePage(String page) throws Exception {
+    public void aUserIsInThePage(String page) {
         if (context.isWeb()) {
             String url = PageUtil.getPageUrl(page, context.isDesktop());
             if (context.isDesktop()) {
                 context.getBrowser().maximize();
             }
             context.getBrowser().goToUrl(url);
+            Assert.assertTrue(context.getBrowser().isInUrl(url));
         }
     }
 
     @And("^the user is in the (.*) page on Android$")
     public void aUserIsInThePageOnAndroid(String page) {
         if (page.equals("Home")) {
-            context.getCurrentPageObjectAs(AndroidLandingPage.class).pressSkip();
+            context.getPageObjectAs(AndroidLandingPage.class).pressSkip();
         }
     }
 
     @Then("^the user has been directed to (.*) page$")
-    public void theUserHasBeenDirectedToPage(String page) throws Exception {
+    public void theUserHasBeenDirectedToPage(String page) {
         if (context.isWeb()) {
             String expectedUrl = PageUtil.getPageUrl(page, context.isDesktop());
             String actualUrl = context.getBrowser().getCurrentPageUrl();
@@ -48,7 +49,7 @@ public class NavigationSteps {
     public void theUserHasBeenDirectedToPageOnAndroid(String page) {
         if (page.equals("Cervantes")) {
             Assert.assertTrue("App should be in Cervantes page",
-                    context.getCurrentPageObjectAs(AndroidCervantesPageObject.class).isPageVisible());
+                    context.getPageObjectAs(AndroidCervantesPageObject.class).isPageVisible());
         }
     }
 

@@ -1,19 +1,19 @@
 package com.trivinosanchez.test.features.pages;
 
-import com.trivinosanchez.framework.base.PageObject;
+import com.trivinosanchez.framework.base.BasePageObject;
+import com.trivinosanchez.framework.base.TestContext;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class AndroidCervantesPageObject extends PageObject {
+public class AndroidCervantesPageObject extends BasePageObject {
 
     @FindBy(how = How.ID, using = "heading_0")
     private WebElement header;
 
-    public AndroidCervantesPageObject(WebDriver driver) {
-        super(driver);
+    public AndroidCervantesPageObject(TestContext context) {
+        super(context);
     }
 
     public boolean isPageVisible() {

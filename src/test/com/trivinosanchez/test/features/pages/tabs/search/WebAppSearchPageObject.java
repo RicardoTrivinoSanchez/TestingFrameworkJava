@@ -1,13 +1,13 @@
 package com.trivinosanchez.test.features.pages.tabs.search;
 
-import com.trivinosanchez.framework.base.PageObject;
+import com.trivinosanchez.framework.base.BasePageObject;
+import com.trivinosanchez.framework.base.TestContext;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-public class WebAppSearchPageObject extends PageObject implements SearchPageObject {
+public class WebAppSearchPageObject extends BasePageObject implements SearchPageObject {
 
     @FindBy(how = How.ID, using = "searchIcon")
     private WebElement searchIcon;
@@ -19,8 +19,8 @@ public class WebAppSearchPageObject extends PageObject implements SearchPageObje
 //    @FindBy(how = How.XPATH, using = "//*[contains(@class, 'cancel')]")
     private WebElement closeButton;
 
-    public WebAppSearchPageObject(WebDriver driver) {
-        super(driver);
+    public WebAppSearchPageObject(TestContext context) {
+        super(context);
     }
 
     public void enterText(String text) {

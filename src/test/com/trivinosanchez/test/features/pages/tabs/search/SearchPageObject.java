@@ -1,8 +1,8 @@
 package com.trivinosanchez.test.features.pages.tabs.search;
 
-import com.trivinosanchez.framework.base.BasePageObject;
+import com.trivinosanchez.framework.base.PageObject;
 
-public interface SearchPageObject extends BasePageObject {
+public interface SearchPageObject extends PageObject {
 
     void enterText(String text);
     void submitSearch();

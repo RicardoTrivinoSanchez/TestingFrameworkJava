@@ -16,13 +16,13 @@ public class SearchSteps {
         this.context = context;
         switch(context.getPlatform()) {
             case Desktop:
-                searchPageObject = context.getCurrentPageObjectAs(DesktopSearchPageObject.class);
+                searchPageObject = context.getPageObjectAs(DesktopSearchPageObject.class);
                 break;
             case WebApp:
-                searchPageObject = context.getCurrentPageObjectAs(WebAppSearchPageObject.class);
+                searchPageObject = context.getPageObjectAs(WebAppSearchPageObject.class);
                 break;
             case Android:
-                searchPageObject = context.getCurrentPageObjectAs(AndroidSearchPageObject.class);
+                searchPageObject = context.getPageObjectAs(AndroidSearchPageObject.class);
                 break;
         }
     }
