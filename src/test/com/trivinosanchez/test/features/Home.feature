@@ -16,10 +16,10 @@ Feature: Login
       | platform  |
       | Desktop   |
 
-    @Mobile
-    Examples:
-      | platform  |
-      | WebApp    |
+#    @Mobile
+#    Examples:
+#      | platform  |
+#      | WebApp    |
 
   @Mobile @Android @App
   Scenario: Android Login Flow

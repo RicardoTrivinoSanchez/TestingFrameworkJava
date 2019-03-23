@@ -46,5 +46,7 @@ public class WebAppSearchPageObject extends BasePageObject implements SearchPage
         closeButton.click();
     }
 
-
+    public boolean isOpen() {
+        return false;
+    }
 }

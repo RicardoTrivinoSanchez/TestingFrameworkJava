@@ -47,4 +47,8 @@ public class AndroidSearchPageObject extends BasePageObject implements SearchPag
     public void closeSearchBox() {
         backArrow.click();
     }
+
+    public boolean isOpen() {
+        return false;
+    }
 }

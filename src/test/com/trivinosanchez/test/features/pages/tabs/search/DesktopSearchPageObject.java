@@ -28,4 +28,8 @@ public class DesktopSearchPageObject extends BasePageObject implements SearchPag
         enterText(textToSearch);
         submitSearch();
     }
+
+    public boolean isOpen() {
+        return false;
+    }
 }
