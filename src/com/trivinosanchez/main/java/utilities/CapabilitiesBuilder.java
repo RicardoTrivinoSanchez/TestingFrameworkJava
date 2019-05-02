@@ -43,7 +43,7 @@ public class CapabilitiesBuilder {
         CapabilitiesBuilder builder = forIOS();
         builder.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.4");
         builder.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 8");
-        builder.setCapability(MobileCapabilityType.UDID, "XXXXXXXXX");
+        builder.setCapability(MobileCapabilityType.UDID, SettingsUtil.getSimulatorUDID());
         return builder;
     }
 
@@ -51,8 +51,8 @@ public class CapabilitiesBuilder {
         CapabilitiesBuilder builder = forIOS();
         builder.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.4");
         builder.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 6");
-        builder.setCapability(MobileCapabilityType.UDID, "XXXXXXXXX");
-        builder.setCapability("xcodeOrgId", "XXXXXXXXX");
+        builder.setCapability(MobileCapabilityType.UDID, SettingsUtil.getDeviceUDID());
+        builder.setCapability("xcodeOrgId", SettingsUtil.getXcodeOrgId());
         builder.setCapability("xcodeSigningId", "iPhone Developer");
         builder.setCapability("startIWDP", true);
 //        builder.setCapability("updatedWDABundleId", "http://www.apple.com/DTDs/PropertyList-1.0.dtd">);
