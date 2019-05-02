@@ -10,7 +10,7 @@ import utilities.PageBuilderUtil;
 public class TestContext {
 
     public enum Platform {
-        Desktop, WebApp, Android
+        Desktop, WebApp, Android, iOS
     }
 
     private WebDriver driver;
@@ -36,6 +36,10 @@ public class TestContext {
         init(driver, Platform.Android);
     }
 
+    public void initIOS (WebDriver driver) {
+        init(driver, Platform.iOS);
+    }
+
     private <TPage extends BasePageObject> TPage getInstance(Class<TPage> pageObject) {
         Object obj = PageBuilderUtil.initElements(this, pageObject);
         return pageObject.cast(obj);
@@ -56,5 +60,17 @@ public class TestContext {
 
     public boolean isWeb() {
         return platform == Platform.Desktop || platform == Platform.WebApp;
+    }
+
+    public boolean isAndroid() {
+        return platform == Platform.Android;
+    }
+
+    public boolean isIOS() {
+        return platform == Platform.iOS;
+    }
+
+    public boolean isApp() {
+        return platform == Platform.Android || platform == Platform.iOS;
     }
 }

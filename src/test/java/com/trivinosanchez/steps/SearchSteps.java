@@ -1,10 +1,7 @@
 package com.trivinosanchez.steps;
 
 import base.TestContext;
-import com.trivinosanchez.pages.tabs.search.AndroidSearchPageObject;
-import com.trivinosanchez.pages.tabs.search.DesktopSearchPageObject;
-import com.trivinosanchez.pages.tabs.search.SearchPageObject;
-import com.trivinosanchez.pages.tabs.search.WebAppSearchPageObject;
+import com.trivinosanchez.pages.tabs.search.*;
 import cucumber.api.java.en.When;
 
 public class SearchSteps {
@@ -23,6 +20,9 @@ public class SearchSteps {
                 break;
             case Android:
                 searchPageObject = context.getPageObjectAs(AndroidSearchPageObject.class);
+                break;
+            case iOS:
+                searchPageObject = context.getPageObjectAs(iOSSearchPageObject.class);
                 break;
         }
     }

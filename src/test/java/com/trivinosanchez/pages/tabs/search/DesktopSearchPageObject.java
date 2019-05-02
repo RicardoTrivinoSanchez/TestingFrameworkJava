@@ -29,7 +29,7 @@ public class DesktopSearchPageObject extends BasePageObject implements SearchPag
         submitSearch();
     }
 
-    public boolean isOpen() {
+    public boolean isVisible() {
         return false;
     }
 }

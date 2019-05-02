@@ -28,4 +28,9 @@ public class InitializerSteps {
     public void aUserWithTheAppOnAndroid(String appName) throws MalformedURLException {
         context.initAndroid(InitializerUtil.getDriverForAndroid(appName));
     }
+
+    @Given("^a user with the (.*) app on iOS$")
+    public void aUserWithTheWikipediaAppOnIOS(String appName) throws MalformedURLException {
+        context.initIOS(InitializerUtil.getDriverForIOS(appName));
+    }
 }

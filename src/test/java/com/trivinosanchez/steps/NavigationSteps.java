@@ -1,8 +1,10 @@
 package com.trivinosanchez.steps;
 
 import base.TestContext;
-import com.trivinosanchez.pages.AndroidCervantesPageObject;
-import com.trivinosanchez.pages.AndroidLandingPage;
+import com.trivinosanchez.pages.cervantes.AndroidCervantesPageObject;
+import com.trivinosanchez.pages.cervantes.iOSCervantesPageObject;
+import com.trivinosanchez.pages.home.iOSHomePageObject;
+import com.trivinosanchez.pages.landing.AndroidLandingPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -35,6 +37,13 @@ public class NavigationSteps {
         }
     }
 
+    @And("^the user is in the (.*) page on iOS$")
+    public void aUserIsInThePageOnIOS(String page) {
+        if (page.equals("Home")) {
+            context.getPageObjectAs(iOSHomePageObject.class).isVisible();
+        }
+    }
+
     @Then("^the user has been directed to (.*) page$")
     public void theUserHasBeenDirectedToPage(String page) {
         if (context.isWeb()) {
@@ -53,4 +62,11 @@ public class NavigationSteps {
         }
     }
 
+    @Then("^the user has been directed to (.*) page on iOS$")
+    public void theUserHasBeenDirectedToPageOnIOS(String page) {
+        if (page.equals("Cervantes")) {
+            Assert.assertTrue("App should be in Cervantes page",
+                    context.getPageObjectAs(iOSCervantesPageObject.class).isPageVisible());
+        }
+    }
 }

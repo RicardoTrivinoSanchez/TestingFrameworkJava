@@ -4,7 +4,8 @@ import java.util.Properties;
 
 public class PageUtil {
 
-    private static final String PROPERTIES_URL = "/home/ricardo/Projects/TestingFrameworkJava/src/com/trivinosanchez/main/resources/PageUrls.properties";
+    private static final String PROPERTIES_URL = "/Users/ricardo.trivino/Projects/TestingFrameworkJava/src/com/trivinosanchez/main/resources/PageUrls.properties";
+//    private static final String PROPERTIES_URL = "/home/ricardo/Projects/TestingFrameworkJava/src/com/trivinosanchez/main/resources/PageUrls.properties";
     private static final Properties PAGE_PATHS = PropertiesUtil.getProperties(PROPERTIES_URL);
 
     public static String getPageUrl(String page, boolean isDesktop) {

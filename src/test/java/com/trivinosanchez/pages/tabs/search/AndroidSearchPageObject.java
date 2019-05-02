@@ -45,7 +45,7 @@ public class AndroidSearchPageObject extends BaseAndroidPageObject implements Se
         backArrow.click();
     }
 
-    public boolean isOpen() {
+    public boolean isVisible() {
         return false;
     }
 }

@@ -14,4 +14,8 @@ public class DesktopHomePageObject extends BaseWebPage implements HomePage {
         super(context);
         searchBox = new DesktopSearchPageObject(context);
     }
+
+    public boolean isVisible() {
+        return false;
+    }
 }

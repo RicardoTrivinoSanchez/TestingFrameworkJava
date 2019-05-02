@@ -1,4 +1,4 @@
-package com.trivinosanchez.pages;
+package com.trivinosanchez.pages.cervantes;
 
 import base.BasePageObject;
 import base.TestContext;

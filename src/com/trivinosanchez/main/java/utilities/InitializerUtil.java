@@ -1,11 +1,12 @@
 package utilities;
 
 import base.Browser;
-import base.Capabilities;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -44,15 +45,23 @@ public class InitializerUtil {
     public static WebDriver getDriverForWebApp(String browserName) throws MalformedURLException {
         AndroidDriver driver = new AndroidDriver(
                 getAppiumServerUrl(),
-                Capabilities.forAndroidBrowser(browserName));
+                CapabilitiesBuilder.forAndroidBrowser(browserName));
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
 
     public static WebDriver getDriverForAndroid(String appName) throws MalformedURLException {
-        AndroidDriver driver = new AndroidDriver(
+        AndroidDriver<WebElement> driver = new AndroidDriver<>(
                 getAppiumServerUrl(),
-                Capabilities.forAndroidApp(appName));
+                CapabilitiesBuilder.forAndroidWikipediaApp());
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        return driver;
+    }
+
+    public static WebDriver getDriverForIOS(String appName) throws MalformedURLException {
+        IOSDriver<WebElement> driver = new IOSDriver<>(
+                getAppiumServerUrl(),
+                CapabilitiesBuilder.forIOSWikipediaApp());
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         return driver;
     }
