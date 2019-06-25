@@ -18,3 +18,5 @@ target/
 
 #Project
 src/com/trivinosanchez/framework/drivers
+src/com/trivinosanchez/main/resources/iOSConfig.properties
+
